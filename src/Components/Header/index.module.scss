@@ -1,31 +1,135 @@
+@import '../../styles/index.scss';
+
+#phone {
+    height: 720px;
+    @include for-size(tablet-landscape) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    @include for-size(phone-only) {
+        height: 500px;
+    }
+}
+
 #effects {
-    top: 12rem;
-    right:21rem;
+    top: 13rem;
+    right:20rem;
+    @include for-size(tablet-landscape) {
+        left: 50%;
+        transform: translateX(-140%);
+    }
+    @include for-size(phone-only) {
+        width: 140px;
+        top: 11rem;
+        transform: translateX(-150%);
+    }
 }
 
 #tiktok {
-    bottom: -2rem;
-    right: 23rem;
+    bottom: -7.5rem;
+    right: 22.5rem;
+    @include for-size(tablet-landscape) {
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-280%);
+    }
+    @include for-size(phone-only) {
+        width: 60px;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translateX(-250%);
+    }
 }
 
 #youtube {
-    right:5.2rem;
-    top: 8rem;
+    right:2.5rem;
+    top: 8.2rem;
+    @include for-size(tablet-landscape) {
+        left: 50%;
+        transform: translateX(100%);
+    }
+    @include for-size(phone-only) {
+        width: 80px;
+        top: 7.3rem;
+    }
 }
 
 #timeline {
-   bottom: 5rem;
-   right:1.5rem;
+   bottom: 0rem;
+   right:0.5rem;
+   @include for-size(tablet-landscape) {
+        bottom: 6rem;
+        left: 50%;
+        transform: translateX(-5%);
+    }
+    @include for-size(phone-only) {
+        width: 190px;
+        bottom: 4.3rem;
+        transform: translateX(-8%);
+    }
 }
 
 #wrapper {
-    background-image: url('/public/header/bg.png');
-    background-size: 130rem;
+    background-image: url('/public/header/bgLeft.png'), url('/public/header/bgRight.png');
     background-repeat: no-repeat;
-    background-position: -16rem -10rem;
+    background-position: -35rem 2rem, 40rem 2rem;
+    background-size: 80rem 62rem, 80rem 62rem;
 }
 
-#light {
-    left: 45%;
-    top: -3.5rem;
+#header_wrapper {
+    @include for-size(tablet-landscape) {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+#left {
+    @include for-size(mid-desktop) {
+        padding-left: 0;
+    }
+    @include for-size(tablet-landscape) {
+        width: auto;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+#right {
+    @include for-size(tablet-landscape) {
+        display: block;
+        width: 100%;
+        padding-right: 0;
+    }
+}
+
+#buttons_wrapper {
+    @include for-size(tablet-landscape) {
+       justify-content: center;
+    }
+}
+
+#companies {
+    width: 2880px;
+    height: 96px;
+    background-image:url('/public/header/companies.png');
+    background-repeat:repeat;
+    margin-top: 13rem;
+}
+
+#box_wrapper {
+    @include for-size(mid-desktop) {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3rem;
+        div {
+            margin-top: 2rem;
+        }
+    }
+}
+
+#buisnesses_title {
+    @include for-size(phone-only) {
+        font-size: 2.8rem;
+        // word-break: break-all;
+    }
 }

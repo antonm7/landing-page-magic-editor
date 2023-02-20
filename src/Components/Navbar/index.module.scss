@@ -1,0 +1,9 @@
+@import '../../styles/index.scss';
+
+#content_wrapper {
+    span {
+        @include for-size(mid-desktop) {
+            padding-right: 1rem;
+        }
+    }
+}

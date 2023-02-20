@@ -8,10 +8,69 @@
 }
 
 #phones {
-    top: 50px;
     right: 80px;
+    @include for-size(mid-desktop) {
+        right: 40px;
+    }
+    @include for-size(tablet-landscape) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    @include for-size(tablet-portrait) {
+        transform: translateX(-52%);
+    }
+}
+
+#yellow_box_wrapper {
+    @include for-size(tablet-landscape) {
+        width: 80%;
+        height: 50rem;
+        margin: 0 auto;
+        display: flex;
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+    @include for-size(tablet-portrait) {
+        height: 54rem;
+    }
+    @include for-size(phone-only) {
+        width: 95%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 #footer_wrapper {
-    
+    @include for-size(tablet-landscape) {
+        padding-top: 8rem;
+    }
+}
+
+#footer_top_wrapper {
+    @include for-size(tablet-landscape) {
+        flex-direction: column;
+    }
+}
+
+#footer_links_wrapper {
+    @include for-size(tablet-landscape) {
+        padding-left: 0;
+        padding-top: 2rem;
+    }
+}
+
+#bottom_line {
+    @include for-size(tablet-portrait) {
+        flex-direction: column;
+        padding-top: 3rem;
+    }
+}
+
+#privacy {
+    @include for-size(phone-only) {
+        flex-direction: column;
+        p {
+            padding: 1rem 0;
+        }
+    }
 }

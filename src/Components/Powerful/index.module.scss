@@ -1,31 +1,112 @@
+@import '../../styles/index.scss';
+
 #wrapper{
     background-image: url('/public/powerful/right.png'),url('/public/powerful/left.png');
     background-position:right 5rem, left 65rem;
     background-repeat: no-repeat;
+    @include for-size(tablet-landscape) {
+        background-position:25rem 57rem, -5rem 135rem;
+    }
+    @include for-size(phone-only) {
+        background-position:-10rem 57rem, -5rem 135rem;
+    }
 }
-
 
 #light {
     top: 6.2rem;
     left: -2rem;
 }
 
-#circle_container {
+#circle_wrapper {
     background-image: url('/public/powerful/circle.png');
     background-size: 1300px;
     background-position: center center;
     background-repeat: no-repeat;
-    margin-top: -11rem;
+    margin-top: -15rem;
+    @include for-size(tablet-portrait) {
+        background-size: 900px;
+        height: 900px;
+        margin-top: -20rem;
+    }
+    @include for-size(phone-only) {
+        background-size: 800px;
+        height: 800px;
+    }
 }
 
 #circle_content {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    @include for-size(tablet-portrait) {
+        h3 {
+            font-size: 3.5rem;
+        }
+        p {
+            max-width: 27rem;
+        }
+        div {
+            padding-top: 1.5rem;
+            img {
+                width: 135px;
+            }
+        }
+    }
+    @include for-size(phone-only) {
+        h3 {
+            font-size: 3.2rem;
+        }
+        p {
+            
+        }
+        div {
+            padding-top: 1.5rem;
+            img {
+                width: 135px;
+            }
+        }
+    }
 }
 
-// #circle_container {
-//     left: 50%;
-//     transform: translateX(-50%);
-//     top:38.8rem;
-// }
+#powerful_wrapper {
+    @include for-size(tablet-landscape) {
+        flex-direction: column;
+        
+    }
+    @include for-size(phone-only) {
+        padding-bottom: 10rem;
+    }
+}
+
+#firstIllustration {
+    @include for-size(tablet-landscape) {
+        width: 500px;
+        margin-left: auto;
+    }
+}
+
+#create_wrapper {
+    @include for-size(tablet-landscape) {
+        flex-direction: column-reverse;
+    }
+}
+
+#secondIllustration {
+    @include for-size(tablet-landscape) {
+        width: 500px;
+    }
+}
+
+#create_content_wrapper {
+    @include for-size(tablet-landscape) {
+        margin-left: auto;
+    }        
+}
+
+#powerful_content_wrapper,#create_content_wrapper {
+    @include for-size(phone-only) {
+        padding-left: 0;
+    }
+}
+
+
