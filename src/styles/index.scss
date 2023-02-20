@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+@mixin for-size($size) {
+    @if ($size == phone-only) {
+      @media (max-width:600px) {@content;}
+    } @else if($size == tablet-portrait) {
+      @media (max-width:900px) {@content;}
+    } @else if($size == tablet-landscape) {
+      @media (max-width:1200px) {@content;}
+    } @else if($size == mid-desktop) {
+      @media (max-width:1400px) {@content;}
+    } @else if($size == big-desktop) {
+      @media (min-width:1800px) {@content;}
+    }
+  }
+
+html,body {
+    overflow-x: hiddens;
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    background-color: #141315;
+    color: white;
+}
+
+.responsive-padding {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
