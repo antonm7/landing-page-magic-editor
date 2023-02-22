@@ -22,6 +22,8 @@ export default function Header() {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
+        const mm = gsap.matchMedia()
+
         gsap.fromTo(youtubeRef.current,{scale:0},{
             scale:1,duration: 0.4,delay:0.2
         })
@@ -34,20 +36,41 @@ export default function Header() {
         gsap.fromTo(timelineRef.current,{scale:0},{
             scale:1,duration: 0.4,delay:0.2
         })
-        gsap.fromTo(lightRef.current,{
-            css:{
-                left:'60%',
-                top:'-5rem'
-            }
-        },{
-            css:{
-                left:'45%',
-                top:'-3.5rem'
-            },
-            scrollTrigger:{
-                trigger:lightRef.current,
-                start:'-=600'
-            }
+        mm.add('(max-width:1200px)',() => {
+            const animation = gsap.fromTo(lightRef.current,{
+                css:{
+                    left:'60%',
+                    top:'-5rem'
+                }
+            },{
+                css:{
+                    left:'52%',
+                    top:'-3.2rem'
+                },
+                scrollTrigger:{
+                    trigger:lightRef.current,
+                    start:'-=600'
+                }
+            })
+            return () => animation.kill()
+        })
+        mm.add('min-width:1201px',() => {
+            const animation = gsap.fromTo(lightRef.current,{
+                css:{
+                    left:'60%',
+                    top:'-5rem'
+                }
+            },{
+                css:{
+                    left:'45%',
+                    top:'-3.5rem'
+                },
+                scrollTrigger:{
+                    trigger:lightRef.current,
+                    start:'-=600'
+                }
+            })
+            return () => animation.kill()
         })
         gsap.to(companiesRef.current, {
             backgroundPositionX:'-1440px',
@@ -93,7 +116,7 @@ export default function Header() {
                 <div className='flex justify-between pt-28' id={styles.box_wrapper}>
                     <div className='px-10 flex flex-col justify-center bg-darkBackground w-[372px] h-60 rounded-3xl'>
                         <h3 className='font-bold text-6xl'>
-                            +<CountUp start={100} end={200} enableScrollSpy={true} duration={1.2}/>%
+                            +<CountUp start={180} end={200} enableScrollSpy={true} duration={0.7}/>%
                         </h3>
                         <p className='pt-6'>
                             Brand awareness with Video marketing is better than TV
@@ -101,7 +124,7 @@ export default function Header() {
                     </div>
                     <div className='px-10 flex flex-col justify-center bg-darkBlue w-[372px] h-60 rounded-3xl'>
                     <h3 className='font-bold text-6xl'>
-                            +<CountUp start={200} end={300} enableScrollSpy={true} duration={1.2}/>%
+                            +<CountUp start={290} end={300} enableScrollSpy={true} duration={0.7}/>%
                         </h3>
                         <p className='pt-6'>
                         Lead generation with fastes Video content improves 
@@ -109,7 +132,7 @@ export default function Header() {
                     </div>
                     <div className='px-10 flex flex-col justify-center bg-darkBackground w-[372px] h-60 rounded-3xl'>
                     <h3 className='font-bold text-6xl'>
-                            +<CountUp start={0} end={80} enableScrollSpy={true} duration={1.2}/>%
+                            +<CountUp start={70} end={80} enableScrollSpy={true} duration={0.7}/>%
                         </h3>
                         <p className='pt-6'>
                         Video marketing improves conversions & close more sales

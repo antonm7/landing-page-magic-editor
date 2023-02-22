@@ -62,7 +62,7 @@ export default function Powerful() {
     return (
         <>
             <div id={styles.wrapper}>
-                <div className='flex responsive-padding pt-64 pb-64' id={styles.powerful_wrapper}>
+                <div className='flex justify-between responsive-padding pt-64 pb-64' id={styles.powerful_wrapper}>
                     <div className='pl-12 relative' id={styles.powerful_content_wrapper}>
                         <img src={light} ref={lightRef1} id={styles.light} className='absolute'/>
                         <h1 className='font-semibold text-6xl max-w-xl leading-tight'>
@@ -81,7 +81,7 @@ export default function Powerful() {
                     </div>
                     <img className='pt-12' src={firstIllustration} id={styles.firstIllustration}/>
                 </div>
-                <div className='flex responsive-padding pb-64' id={styles.create_wrapper}>
+                <div className='flex justify-between responsive-padding pb-64' id={styles.create_wrapper}>
                     <img className='pt-12' src={secondIllustration} id={styles.secondIllustration}/>
                     <div className='pl-12 relative' id={styles.create_content_wrapper}>
                         <img src={light} ref={lightRef2} className='absolute'/>

@@ -16,7 +16,7 @@
     right:20rem;
     @include for-size(tablet-landscape) {
         left: 50%;
-        transform: translateX(-140%);
+        transform: translateX(-146%) !important;
     }
     @include for-size(phone-only) {
         width: 140px;
@@ -31,7 +31,7 @@
     @include for-size(tablet-landscape) {
         bottom: -1rem;
         left: 50%;
-        transform: translateX(-280%);
+        transform: translateX(-280%) !important;
     }
     @include for-size(phone-only) {
         width: 60px;
@@ -46,7 +46,7 @@
     top: 8.2rem;
     @include for-size(tablet-landscape) {
         left: 50%;
-        transform: translateX(100%);
+        transform: translateX(100%) !important;
     }
     @include for-size(phone-only) {
         width: 80px;
@@ -60,7 +60,7 @@
    @include for-size(tablet-landscape) {
         bottom: 6rem;
         left: 50%;
-        transform: translateX(-5%);
+        transform: translateX(-5%) !important;
     }
     @include for-size(phone-only) {
         width: 190px;
@@ -74,6 +74,9 @@
     background-repeat: no-repeat;
     background-position: -35rem 2rem, 40rem 2rem;
     background-size: 80rem 62rem, 80rem 62rem;
+    @include for-size(big-desktop) {
+        background-position: -40rem 2rem, 55vw 2rem;
+    }
 }
 
 #header_wrapper {

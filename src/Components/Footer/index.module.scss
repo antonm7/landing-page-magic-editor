@@ -67,6 +67,9 @@
 }
 
 #privacy {
+    @include for-size(tablet-portrait) {
+        padding-top: 2rem;
+    }
     @include for-size(phone-only) {
         flex-direction: column;
         p {

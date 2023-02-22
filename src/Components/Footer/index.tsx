@@ -12,8 +12,44 @@ export default function Footer() {
     useEffect(() => {
         let mm = gsap.matchMedia();
         gsap.registerPlugin(ScrollTrigger)
+        mm.add("(max-width:700px)",() => {
+            const animation = gsap.fromTo(phonesRef.current,{
+                top:'36rem'
+            },{
+                top:'29rem',
+                scrollTrigger:{
+                    trigger:phonesRef.current,
+                    scrub:true
+                }
+            })
+            return () => animation.kill()
+        })
+        mm.add("(max-width:900px) and (min-width:701px)",() => {
+            const animation = gsap.fromTo(phonesRef.current,{
+                top:'35rem'
+            },{
+                top:'28rem',
+                scrollTrigger:{
+                    trigger:phonesRef.current,
+                    scrub:true
+                }
+            })
+            return () => animation.kill()
+        })
+        mm.add("(max-width:1200px) and (min-width:901px)",() => {
+            const animation = gsap.fromTo(phonesRef.current,{
+                top:'30rem'
+            },{
+                top:'25rem',
+                scrollTrigger:{
+                    trigger:phonesRef.current,
+                    scrub:true
+                }
+            })
+            return () => animation.kill()
+        })
         mm.add("(min-width: 1201px)",() => {
-            gsap.fromTo(phonesRef.current,{
+            const animation = gsap.fromTo(phonesRef.current,{
                 top:'150px'
             },{
                 top:'30px',
@@ -23,18 +59,7 @@ export default function Footer() {
                     start:'-=550'
                 }
             })
-        })
-        mm.add("(max-width:1200px)",() => {
-            gsap.fromTo(phonesRef.current,{
-                bottom:'-20rem'
-            },{
-                bottom:'-10 rem',
-                scrollTrigger:{
-                    trigger:phonesRef.current,
-                    scrub:true,
-                    // start:'-=550'
-                }
-            })
+            return () => animation.kill()
         })
     },[])
     
