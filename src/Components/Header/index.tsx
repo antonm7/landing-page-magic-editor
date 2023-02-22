@@ -23,21 +23,37 @@ export default function Header() {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
         const mm = gsap.matchMedia()
-
-        gsap.fromTo(youtubeRef.current,{scale:0},{
-            scale:1,duration: 0.4,delay:0.2
+        mm.add('(max-width:600px)',() => {
+            const tiktokAnimation = gsap.fromTo(tiktokRef.current,{scale:0,
+                translateX:'-255%'},{
+                    scale:1,duration: 0.4,delay:0.2,
+                    scrollTrigger:tiktokRef.current
+            })
+            const timelineAnimation = gsap.fromTo(timelineRef.current,{scale:0,
+                translateX:'-5%'},{
+                    scale:1,duration: 0.4,delay:0.2,
+                    scrollTrigger:timelineRef.current
+            })
+            const youtubeAnimation = gsap.fromTo(youtubeRef.current,{scale:0
+                ,translateX:'100%'},{
+                    scale:1,duration: 0.4,delay:0.2,
+                    scrollTrigger:youtubeRef.current
+            })
+            const effectsAnimation = gsap.fromTo(effectsRef.current,{scale:0,
+            translateX:'-146%'},{
+                scale:1,duration: 0.4,delay:0.2,
+                scrollTrigger:effectsRef.current
+            })
+            return () => {
+                tiktokAnimation.kill(),
+                timelineAnimation.kill(),
+                youtubeAnimation.kill(),
+                effectsAnimation.kill()
+            }
         })
-        gsap.fromTo(effectsRef.current,{scale:0},{
-            scale:1,duration: 0.4,delay:0.2
-        })
-        gsap.fromTo(tiktokRef.current,{scale:0},{
-            scale:1,duration: 0.4,delay:0.2
-        })
-        gsap.fromTo(timelineRef.current,{scale:0},{
-            scale:1,duration: 0.4,delay:0.2
-        })
-        mm.add('(max-width:1200px)',() => {
-            const animation = gsap.fromTo(lightRef.current,{
+        
+        mm.add('(max-width:1200px) and (min-width:601px)',() => {
+            const lightAnimation = gsap.fromTo(lightRef.current,{
                 css:{
                     left:'60%',
                     top:'-5rem'
@@ -52,10 +68,52 @@ export default function Header() {
                     start:'-=600'
                 }
             })
-            return () => animation.kill()
+            const youtubeAnimation = gsap.fromTo(youtubeRef.current,{scale:0
+            ,translateX:'100%'},{
+                scale:1,duration: 0.4,delay:0.2,
+                scrollTrigger:youtubeRef.current
+            })
+            const effectsAnimation = gsap.fromTo(effectsRef.current,{scale:0,
+            translateX:'-146%'},{
+                scale:1,duration: 0.4,delay:0.2,
+                scrollTrigger:effectsRef.current
+            })
+            const tiktokAnimation = gsap.fromTo(tiktokRef.current,{scale:0,
+            translateX:'-280%'},{
+                scale:1,duration: 0.4,delay:0.2,
+                scrollTrigger:tiktokRef.current
+            })
+            const timelineAnimation = gsap.fromTo(timelineRef.current,{scale:0,
+            translateX:'-5%'},{
+                scale:1,duration: 0.4,delay:0.2,
+                scrollTrigger:timelineRef.current
+            })
+            return () => {
+                lightAnimation.kill(),
+                timelineAnimation.kill(),
+                tiktokAnimation.kill(),
+                effectsAnimation.kill(),
+                youtubeAnimation.kill()
+            }
         })
-        mm.add('min-width:1201px',() => {
-            const animation = gsap.fromTo(lightRef.current,{
+        mm.add('(min-width:1201px)',() => {
+            const youtubeAnimation = gsap.fromTo(youtubeRef.current,{scale:0,
+                translateX:'0'},{
+                scale:1,duration: 0.4,delay:0.2
+            })
+            const effectsAnimation = gsap.fromTo(effectsRef.current,{scale:0,
+                translateX:'0'},{
+                scale:1,duration: 0.4,delay:0.2
+            })
+            const tiktokAnimation = gsap.fromTo(tiktokRef.current,{scale:0,
+                translateX:'0'},{
+                scale:1,duration: 0.4,delay:0.2
+            })
+            const timelineAnimation = gsap.fromTo(timelineRef.current,{scale:0,
+            translateX:'0'},{
+                scale:1,duration: 0.4,delay:0.2
+            })
+            const lightAnimation = gsap.fromTo(lightRef.current,{
                 css:{
                     left:'60%',
                     top:'-5rem'
@@ -70,7 +128,13 @@ export default function Header() {
                     start:'-=600'
                 }
             })
-            return () => animation.kill()
+            return () => {
+                lightAnimation.kill(),
+                timelineAnimation.kill(),
+                tiktokAnimation.kill(),
+                effectsAnimation.kill(),
+                youtubeAnimation.kill()
+            }
         })
         gsap.to(companiesRef.current, {
             backgroundPositionX:'-1440px',
